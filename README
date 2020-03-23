@@ -1,0 +1,39 @@
+***Name: Dinh Nguyen***
+ECEC 353 Winter 2020
+Project1 - Chat System
+
+***README***
+
+**Instruction**
+
+Step 1: Compile chat_server.c by: gcc -o chat_server chat_server.c -std=c99 -Wall -lrt
+Compile chat_client.c by: gcc -o chat_client chat_client.c -std=c99 -Wall -lrt
+
+Step 2: Run chat_server on xunil machine by: ./chat_server
+The current terminal will be running chat_server. It will wait for the first client to connect,
+then show the output. It also displays the number of clients and send ping message to clients.
+Server can take up to 100 connected clients. 
+
+Step 3: Open another terminal and run chat_client on xunil by: ./chat_client [clientname]
+
+Chat_client requires an extra argument for the client name.
+You can open as many terminals and run chat_client as you wants (up to 100).
+Once it connected to server, it will display the results on both server and client terminals.
+It will always display option menu and constantly read for messages sent to it by the server. 
+
+There are 3 option in the menu: 
+- B for broadcast which requires users to enter and send the message to the rest of the server. 
+- P for private message which will then ask for a private client - the destination of the message,
+and users then have to enter the message. 
+- E for exit which will remove the fifo and shut down the client. 
+
+**In case of crash/CTRL C**
+
+If the client crash while connecting to the server, server will disconnect and remove the client.
+The client will shut down and kill the processes by itself.
+
+If the server crash while connecting, server will remove itself from /tmp/ and kill its process.
+The client will receive message notifying server has crashed and wait for a time out. 
+If time out is reached, the client will exit and kill its own processes. 
+
+********************************END OF FILE ***************************************
